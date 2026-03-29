@@ -1,0 +1,48 @@
+<div class="page">
+  <div class="toast" [class.show]="showToast">
+    <span class="toast-icon">✓</span>
+    Template Saved!
+    <div class="toast-bar"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Choose a Template</div>
+      <div class="card-sub">Pick the design that fits your style</div>
+    </div>
+
+    <div class="templates-grid">
+      <div
+        *ngFor="let t of templates"
+        class="template-card"
+        [class.selected]="selectedTemplate === t.id"
+        (click)="selectTemplate(t.id)"
+      >
+        <div class="template-preview" [ngClass]="t.id">
+          <div class="preview-bar"></div>
+          <div class="preview-line long"></div>
+          <div class="preview-line short"></div>
+          <div class="preview-line medium"></div>
+        </div>
+        <div class="template-info">
+          <div class="template-name">{{ t.name }}</div>
+          <div class="template-desc">{{ t.description }}</div>
+        </div>
+        <div class="check-icon" *ngIf="selectedTemplate === t.id">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-main" (click)="saveTemplate()">Save Template</button>
+  </div>
+</div>

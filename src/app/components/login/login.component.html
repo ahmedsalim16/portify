@@ -1,0 +1,49 @@
+<div class="page">
+  <div class="bg-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="card">
+    <div class="logo">
+      <div class="logo-text">Portify</div>
+      <div class="logo-sub">Welcome back</div>
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        placeholder="you@example.com"
+        name="email"
+      />
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input
+        type="password"
+        [(ngModel)]="password"
+        placeholder="••••••••"
+        name="password"
+      />
+    </div>
+
+    <button class="btn-main" (click)="login()">Login</button>
+
+    <div class="divider"><span>or continue with</span></div>
+
+    <button class="btn-google" (click)="loginWithGoogle()">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" />
+      Login with Google
+    </button>
+
+    <div class="msg" [class.success]="message.includes('✅')">
+      {{ message }}
+    </div>
+
+    <div class="footer-text">
+      Don't have an account? <a routerLink="/register">Register</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="t1">
+  <nav class="t1-nav">
+    <span class="t1-nav-logo">{{ user?.profile?.name }}</span>
+    <div class="t1-nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="t1-hero">
+    <div class="t1-hero-text">
+      <div class="t1-badge">Available for work</div>
+      <h1>
+        Hi, I'm <span class="t1-accent">{{ user?.profile?.name }}</span>
+      </h1>
+      <p>{{ user?.profile?.bio }}</p>
+      <div class="t1-hero-btns">
+        <a href="#projects" class="t1-btn-primary">View Work</a>
+        <a href="#contact" class="t1-btn-secondary">Contact Me</a>
+      </div>
+    </div>
+    <div class="t1-hero-img">
+      <div class="t1-img-ring">
+        <img [src]="user?.profile?.imageUrl" alt="profile" />
+      </div>
+    </div>
+  </section>
+
+  <section class="t1-section" id="skills">
+    <h2 class="t1-section-title">Skills</h2>
+    <div class="t1-skills">
+      <span class="t1-skill" *ngFor="let skill of user?.skills">{{
+        skill
+      }}</span>
+    </div>
+  </section>
+
+  <section class="t1-section" id="projects">
+    <h2 class="t1-section-title">Projects</h2>
+    <div class="t1-projects">
+      <div class="t1-project-card" *ngFor="let p of user?.projects">
+        <div class="t1-project-num">01</div>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.description }}</p>
+        <a [href]="p.link" target="_blank">View Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="t1-section" id="contact">
+    <h2 class="t1-section-title">Contact</h2>
+    <div class="t1-socials">
+      <a
+        class="t1-social"
+        *ngFor="let s of user?.socialLinks"
+        [href]="s.link"
+        target="_blank"
+      >
+        {{ s.platform }}
+      </a>
+    </div>
+  </section>
+
+  <footer class="t1-footer">Built with Portify © 2025</footer>
+</div>

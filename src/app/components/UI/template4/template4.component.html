@@ -1,0 +1,63 @@
+<div class="t4">
+  <div class="t4-scanlines"></div>
+
+  <section class="t4-hero">
+    <div class="t4-terminal-bar">
+      <span class="t4-dot red"></span>
+      <span class="t4-dot yellow"></span>
+      <span class="t4-dot green"></span>
+      <span class="t4-terminal-title">portfolio.exe</span>
+    </div>
+    <div class="t4-hero-inner">
+      <img [src]="user?.profile?.imageUrl" alt="profile" class="t4-avatar" />
+      <div class="t4-hero-text">
+        <div class="t4-prompt">$ whoami</div>
+        <h1>{{ user?.profile?.name }}<span class="t4-cursor">_</span></h1>
+        <p>{{ user?.profile?.bio }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="t4-section">
+    <div class="t4-section-header">
+      <span class="t4-prompt">$ ls skills/</span>
+    </div>
+    <div class="t4-skills">
+      <span class="t4-skill" *ngFor="let skill of user?.skills">{{
+        skill
+      }}</span>
+    </div>
+  </section>
+
+  <section class="t4-section">
+    <div class="t4-section-header">
+      <span class="t4-prompt">$ cat projects.json</span>
+    </div>
+    <div class="t4-projects">
+      <div class="t4-project" *ngFor="let p of user?.projects">
+        <div class="t4-project-top">
+          <span class="t4-project-name">{{ p.title }}</span>
+          <a [href]="p.link" target="_blank" class="t4-project-link">open ↗</a>
+        </div>
+        <p>{{ p.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="t4-section">
+    <div class="t4-section-header">
+      <span class="t4-prompt">$ connect --social</span>
+    </div>
+    <div class="t4-socials">
+      <a
+        class="t4-social"
+        *ngFor="let s of user?.socialLinks"
+        [href]="s.link"
+        target="_blank"
+        >{{ s.platform }}</a
+      >
+    </div>
+  </section>
+
+  <footer class="t4-footer">// EOF — Built with Portify</footer>
+</div>

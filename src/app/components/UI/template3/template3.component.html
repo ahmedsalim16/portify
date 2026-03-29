@@ -1,0 +1,50 @@
+<div class="t3">
+  <aside class="t3-sidebar">
+    <img [src]="user?.profile?.imageUrl" alt="profile" class="t3-avatar" />
+    <h1>{{ user?.profile?.name }}</h1>
+    <p class="t3-bio">{{ user?.profile?.bio }}</p>
+    <div class="t3-divider"></div>
+    <h3 class="t3-sidebar-label">Skills</h3>
+    <div class="t3-skills">
+      <span class="t3-skill" *ngFor="let skill of user?.skills">{{
+        skill
+      }}</span>
+    </div>
+    <div class="t3-divider"></div>
+    <h3 class="t3-sidebar-label">Connect</h3>
+    <div class="t3-socials">
+      <a
+        class="t3-social"
+        *ngFor="let s of user?.socialLinks"
+        [href]="s.link"
+        target="_blank"
+        >{{ s.platform }}</a
+      >
+    </div>
+  </aside>
+
+  <main class="t3-main">
+    <header class="t3-header">
+      <div class="t3-header-text">
+        <span class="t3-greeting">Portfolio</span>
+        <h2>My Projects</h2>
+      </div>
+    </header>
+
+    <div class="t3-projects">
+      <div
+        class="t3-project-card"
+        *ngFor="let p of user?.projects; let i = index"
+      >
+        <div class="t3-project-index">
+          {{ i + 1 < 10 ? "0" + (i + 1) : i + 1 }}
+        </div>
+        <div class="t3-project-body">
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+          <a [href]="p.link" target="_blank">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,63 @@
+<div class="page">
+  <div class="toast" [class.show]="showToast">
+    <span class="toast-icon">✓</span>
+    Skills Saved!
+    <div class="toast-bar"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Skills</div>
+      <div class="card-sub">Add your technical and soft skills</div>
+    </div>
+
+    <div class="input-row">
+      <input
+        [(ngModel)]="newSkill"
+        name="skill"
+        type="text"
+        placeholder="e.g. Angular, Figma, Python..."
+        (keyup.enter)="addSkill()"
+      />
+      <button class="btn-add" (click)="addSkill()">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+        Add
+      </button>
+    </div>
+
+    <div class="skills-list" *ngIf="skills.length > 0">
+      <span class="skill-tag" *ngFor="let skill of skills; let i = index">
+        {{ skill }}
+        <button class="remove-btn" (click)="removeSkill(i)">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </span>
+    </div>
+
+    <div class="empty" *ngIf="skills.length === 0">
+      No skills added yet — start typing above
+    </div>
+
+    <button class="btn-main" (click)="saveSkills()">Save Skills</button>
+  </div>
+</div>

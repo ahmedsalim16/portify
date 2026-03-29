@@ -1,0 +1,48 @@
+<div class="t2">
+  <div class="t2-bg">
+    <div class="t2-orb t2-orb1"></div>
+    <div class="t2-orb t2-orb2"></div>
+    <div class="t2-orb t2-orb3"></div>
+  </div>
+
+  <div class="t2-content">
+    <section class="t2-hero">
+      <div class="t2-glass t2-profile-card">
+        <img [src]="user?.profile?.imageUrl" alt="profile" class="t2-avatar" />
+        <h1>{{ user?.profile?.name }}</h1>
+        <p>{{ user?.profile?.bio }}</p>
+        <div class="t2-social-row">
+          <a
+            class="t2-social-pill"
+            *ngFor="let s of user?.socialLinks"
+            [href]="s.link"
+            target="_blank"
+            >{{ s.platform }}</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="t2-glass t2-card">
+      <h2>Skills</h2>
+      <div class="t2-skills">
+        <span class="t2-skill" *ngFor="let skill of user?.skills">{{
+          skill
+        }}</span>
+      </div>
+    </section>
+
+    <section class="t2-glass t2-card">
+      <h2>Projects</h2>
+      <div class="t2-projects">
+        <div class="t2-project" *ngFor="let p of user?.projects">
+          <div class="t2-project-header">
+            <h3>{{ p.title }}</h3>
+            <a [href]="p.link" target="_blank" class="t2-project-link">↗</a>
+          </div>
+          <p>{{ p.description }}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

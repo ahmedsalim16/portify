@@ -1,0 +1,76 @@
+<div class="page">
+  <div class="toast" [class.show]="showToast">
+    <span class="toast-icon">✓</span>
+    Saved Successfully!
+    <div class="toast-bar"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Personal Information</div>
+      <div class="card-sub">Update your profile details</div>
+    </div>
+
+    <form (ngSubmit)="uploadImageAndSaveProfile()">
+      <div class="field">
+        <label>Full Name</label>
+        <input
+          type="text"
+          [(ngModel)]="profile.name"
+          name="name"
+          placeholder="John Doe"
+        />
+      </div>
+
+      <div class="field">
+        <label>Username</label>
+        <input
+          type="text"
+          [(ngModel)]="profile.username"
+          name="username"
+          placeholder="johndoe123"
+        />
+      </div>
+
+      <div class="field">
+        <label>Bio</label>
+        <textarea
+          [(ngModel)]="profile.bio"
+          name="bio"
+          placeholder="Tell us about yourself..."
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label>Profile Image</label>
+        <div class="file-input-wrapper">
+          <input
+            type="file"
+            name="image"
+            (change)="onImageSelected($event)"
+            id="fileInput"
+          />
+          <label for="fileInput" class="file-label">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+            Choose Image
+          </label>
+          <span class="file-name" id="fileName">No file chosen</span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-main">Save Changes</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="page">
+  <div class="toast" [class.show]="showToast">
+    <span class="toast-icon">✓</span>
+    Social Links Saved!
+    <div class="toast-bar"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Social Links</div>
+      <div class="card-sub">Add your social media profiles</div>
+    </div>
+
+    <div class="input-group">
+      <div class="field">
+        <label>Platform</label>
+        <input
+          [(ngModel)]="social.platform"
+          placeholder="e.g. GitHub, LinkedIn..."
+        />
+      </div>
+      <div class="field">
+        <label>Profile Link</label>
+        <input [(ngModel)]="social.link" placeholder="https://..." />
+      </div>
+      <button class="btn-add" (click)="addLink()">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+        Add Link
+      </button>
+    </div>
+
+    <div class="links-list" *ngIf="socialLinks.length > 0">
+      <div class="link-card" *ngFor="let s of socialLinks; let i = index">
+        <div class="link-info">
+          <div class="link-platform">{{ s.platform }}</div>
+          <a [href]="s.link" target="_blank" class="link-url">{{ s.link }}</a>
+        </div>
+        <button class="remove-btn" (click)="removeLink(i)">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="empty" *ngIf="socialLinks.length === 0">
+      No links added yet — add your first social profile above
+    </div>
+
+    <button class="btn-main" (click)="saveLinks()">Save Social Links</button>
+  </div>
+</div>
