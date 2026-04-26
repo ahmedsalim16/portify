@@ -6,20 +6,11 @@
 </div>
 
 <div *ngIf="user && !loading">
-  <app-template1
-    *ngIf="user.selectedTemplate === 'template1'"
-    [user]="user"
-  ></app-template1>
-  <app-template2
-    *ngIf="user.selectedTemplate === 'template2'"
-    [user]="user"
-  ></app-template2>
-  <app-template3
-    *ngIf="user.selectedTemplate === 'template3'"
-    [user]="user"
-  ></app-template3>
-  <app-template4
-    *ngIf="user.selectedTemplate === 'template4'"
-    [user]="user"
-  ></app-template4>
+  <app-template1 *ngIf="user.selectedTemplate === 'template1'" [user]="user"></app-template1>
+  <app-template2 *ngIf="user.selectedTemplate === 'template2'" [user]="user"></app-template2>
+  <app-template3 *ngIf="user.selectedTemplate === 'template3'" [user]="user"></app-template3>
+  <app-template4 *ngIf="user.selectedTemplate === 'template4'" [user]="user"></app-template4>
+  <app-template5 *ngIf="user.selectedTemplate === 'template5'" [user]="user"></app-template5>
+  <app-template6 *ngIf="user.selectedTemplate === 'template6'" [user]="user"></app-template6>
+  <app-template7 *ngIf="user.selectedTemplate === 'template7'" [user]="user"></app-template7>
 </div>

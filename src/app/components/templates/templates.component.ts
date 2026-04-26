@@ -7,12 +7,15 @@ import { FirebaseService } from '../../firebase.service';
   styleUrls: ['./templates.component.css'],
 })
 export class TemplatesComponent implements OnInit {
-  templates = [
-    { id: 'template1', name: 'Dark Minimal', description: 'Clean & modern' },
-    { id: 'template2', name: 'Glass Morphism', description: 'Creative layout' },
-    { id: 'template3', name: 'Clean Light', description: 'Single page style' },
-    { id: 'template4', name: 'Neon Terminal', description: 'landing page' },
-  ];
+templates = [
+  { id: 'template1', name: 'Dark Minimal', description: 'Sleek dark design' },
+  { id: 'template2', name: 'Glass Morphism', description: 'Glassmorphism style' },
+  { id: 'template3', name: 'Clean Light', description: 'Professional light' },
+  { id: 'template4', name: 'Neon Terminal', description: 'Cyberpunk vibes' },
+  { id: 'template5', name: 'Frontend Dev', description: 'GitHub-inspired' },
+  { id: 'template6', name: 'Backend Dev', description: 'VS Code-inspired' },
+  { id: 'template7', name: 'Data Analyst', description: 'Dashboard style' },
+];
 
   selectedTemplate = '';
   uid:any;

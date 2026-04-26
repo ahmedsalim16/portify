@@ -1,0 +1,110 @@
+<div class="t7">
+  <header class="t7-header">
+    <div class="t7-header-inner">
+      <div class="t7-header-left">
+        <div class="t7-badge">◆ DATA ANALYST</div>
+        <h1>{{ user?.profile?.name }}<br /><span>Portfolio</span></h1>
+        <p>// {{ user?.profile?.bio }}</p>
+        <div class="t7-socials">
+          <a
+            class="t7-social"
+            *ngFor="let s of user?.socialLinks"
+            [href]="s.link"
+            target="_blank"
+            >{{ s.platform }}</a
+          >
+        </div>
+      </div>
+      <div class="t7-header-right">
+        <div class="t7-avatar-wrap">
+          <img
+            [src]="user?.profile?.imageUrl"
+            alt="profile"
+            class="t7-avatar"
+          />
+        </div>
+        <div class="t7-chart-bars">
+          <div
+            class="t7-bar-wrap"
+            *ngFor="let s of user?.skills?.slice(0, 5); let i = index"
+          >
+            <div
+              class="t7-bar"
+              [style.height]="50 + ((i * 13) % 60) + 'px'"
+            ></div>
+            <div class="t7-bar-label">
+              {{ s.length > 6 ? s.slice(0, 5) + ".." : s }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="t7-body">
+    <div class="t7-card">
+      <div class="t7-card-top">
+        <div class="t7-card-title">Key Metrics</div>
+        <div class="t7-card-badge">{{ currentYear }}</div>
+      </div>
+      <div class="t7-metrics">
+        <div class="t7-metric">
+          <div class="t7-metric-val">
+            {{ user?.projects?.length || 0 }}<span>+</span>
+          </div>
+          <div class="t7-metric-label">projects</div>
+        </div>
+        <div class="t7-metric">
+          <div class="t7-metric-val">
+            {{ user?.skills?.length || 0 }}<span>+</span>
+          </div>
+          <div class="t7-metric-label">skills</div>
+        </div>
+        <div class="t7-metric">
+          <div class="t7-metric-val">5<span>k+</span></div>
+          <div class="t7-metric-label">rows analyzed</div>
+        </div>
+        <div class="t7-metric">
+          <div class="t7-metric-val">98<span>%</span></div>
+          <div class="t7-metric-label">accuracy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t7-card">
+      <div class="t7-card-top">
+        <div class="t7-card-title">Skills Matrix</div>
+        <div class="t7-card-badge">proficiency</div>
+      </div>
+      <div class="t7-skills">
+        <div class="t7-skill-row" *ngFor="let s of user?.skills; let i = index">
+          <span class="t7-skill-name">{{ s }}</span>
+          <div class="t7-skill-track">
+            <div
+              class="t7-skill-fill"
+              [style.width]="70 + ((i * 7) % 28) + '%'"
+            ></div>
+          </div>
+          <span class="t7-skill-pct">{{ 70 + ((i * 7) % 28) }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t7-card t7-card-full">
+      <div class="t7-card-top">
+        <div class="t7-card-title">Case Studies</div>
+        <div class="t7-card-badge">{{ user?.projects?.length }} projects</div>
+      </div>
+      <div class="t7-projects">
+        <div class="t7-project" *ngFor="let p of user?.projects; let i = index">
+          <div class="t7-project-icon">{{ icons[i % icons.length] }}</div>
+          <div class="t7-project-title">{{ p.title }}</div>
+          <div class="t7-project-desc">{{ p.description }}</div>
+          <a [href]="p.link" target="_blank" class="t7-project-link"
+            >View Analysis →</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

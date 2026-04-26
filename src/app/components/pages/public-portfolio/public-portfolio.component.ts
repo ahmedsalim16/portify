@@ -26,6 +26,8 @@ export class PublicPortfolioComponent implements OnInit {
 
   const data = await this.fb.getUserByUsername(username);
   console.log('DATA FROM FIREBASE:', data);
+  console.log('SELECTED TEMPLATE:', data?.['selectedTemplate']);
+console.log('TYPE:', typeof data?.['selectedTemplate']);
 
   if (!data) {
     this.notFound = true;

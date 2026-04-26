@@ -1,0 +1,106 @@
+<div class="t5">
+  <div class="t5-noise"></div>
+
+  <nav class="t5-nav">
+    <div class="t5-nav-logo">{{ user?.profile?.name }}</div>
+    <div class="t5-nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="t5-nav-pill"><div class="t5-pill-dot"></div>Available</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="t5-hero">
+    <div class="t5-hero-inner">
+      <div class="t5-circle-area">
+        <div class="t5-circle-bg"></div>
+        <img [src]="user?.profile?.imageUrl" alt="profile" class="t5-circle-img" />
+      </div>
+      <div class="t5-hero-text">
+        <div class="t5-eyebrow"><div class="t5-eline"></div><span class="t5-etext">Frontend Developer</span></div>
+        <h1>I am <span class="t5-accent">a creative</span><br>frontend developer</h1>
+        <p>{{ user?.profile?.bio }}</p>
+        <div class="t5-btns">
+          <a href="#projects" class="t5-btn-main">View My Work →</a>
+          <a href="#contact" class="t5-btn-ghost">Contact Me</a>
+        </div>
+        <div class="t5-stats">
+          <div class="t5-stat"><div class="t5-stat-val">{{ user?.projects?.length || 0 }}+</div><div class="t5-stat-label">Projects</div></div>
+          <div class="t5-stat"><div class="t5-stat-val">{{ user?.skills?.length || 0 }}+</div><div class="t5-stat-label">Skills</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="t5-about" id="about">
+    <div class="t5-about-inner">
+      <div class="reveal">
+        <div class="t5-sec-label">01 — About</div>
+        <div class="t5-sec-title">Who I am</div>
+        <p class="t5-about-text">{{ user?.profile?.bio }}</p>
+      </div>
+      <div class="t5-about-right reveal">
+        <div class="t5-about-card"><div class="t5-about-card-icon">🎨</div><h4>UI Design</h4><p>Figma, wireframes & pixel-perfect implementation</p></div>
+        <div class="t5-about-card"><div class="t5-about-card-icon">⚡</div><h4>Performance</h4><p>Core Web Vitals, lazy loading & optimization</p></div>
+        <div class="t5-about-card"><div class="t5-about-card-icon">📱</div><h4>Responsive</h4><p>Mobile-first design across all devices</p></div>
+        <div class="t5-about-card"><div class="t5-about-card-icon">🔧</div><h4>Clean Code</h4><p>Maintainable, scalable & well-documented</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="t5-projects" id="projects">
+    <div class="t5-projects-inner">
+      <div class="t5-projects-header reveal">
+        <div><div class="t5-sec-label">02 — Work</div><div class="t5-sec-title">Selected Projects</div></div>
+        <span class="t5-projects-count">{{ user?.projects?.length }} projects</span>
+      </div>
+      <div class="t5-projects-grid">
+        <div class="t5-pcard reveal" *ngFor="let p of user?.projects; let i = index">
+          <div class="t5-pcard-top">
+            <span class="t5-pcard-num">{{ i + 1 < 10 ? '0' + (i+1) : i+1 }}</span>
+            <a [href]="p.link" target="_blank" class="t5-pcard-arrow">↗</a>
+          </div>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="t5-skills" id="skills">
+    <div class="t5-skills-inner">
+      <div class="reveal"><div class="t5-sec-label">03 — Skills</div><div class="t5-sec-title">My Tech Stack</div></div>
+      <div class="t5-skills-grid reveal">
+        <span class="t5-skill" *ngFor="let s of user?.skills">{{ s }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="t5-contact" id="contact">
+    <div class="t5-contact-inner">
+      <div class="reveal">
+        <div class="t5-sec-label">04 — Contact</div>
+        <h2>Let's work<br><span class="t5-accent">together</span></h2>
+        <p>Open to freelance projects and full-time opportunities.</p>
+        <button class="t5-btn-main">Get In Touch →</button>
+      </div>
+      <div class="t5-socials reveal">
+        <a class="t5-social" *ngFor="let s of user?.socialLinks" [href]="s.link" target="_blank">
+          {{ s.platform }} <span class="t5-social-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="t5-footer">
+    <span class="t5-footer-text">© 2025 {{ user?.profile?.name }}</span>
+    <span class="t5-footer-right">Built with Portify</span>
+  </footer>
+</div>

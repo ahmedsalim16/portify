@@ -1,0 +1,103 @@
+<div class="t6">
+  <div class="t6-grid-bg"></div>
+
+  <div class="t6-header">
+    <div class="t6-header-left">
+      <div class="t6-server-lights">
+        <div class="t6-light t6-light-1"></div>
+        <div class="t6-light t6-light-2"></div>
+        <div class="t6-light t6-light-3"></div>
+      </div>
+      <div class="t6-sys-label">SYS_PORTFOLIO_v2.4</div>
+    </div>
+    <div class="t6-header-right">UPTIME: 99.9% | NODE: ACTIVE | DB: CONNECTED</div>
+  </div>
+
+  <div class="t6-hero">
+    <div class="t6-hero-left">
+      <div class="t6-status-bar">
+        <div class="t6-status-dot"></div>
+        <div class="t6-status-text">BACKEND_ENGINEER :: ONLINE</div>
+      </div>
+      <h1>{{ user?.profile?.name?.split(' ')[0] }}<br><span>{{ user?.profile?.name?.split(' ')[1] }}</span></h1>
+      <p>{{ user?.profile?.bio }}</p>
+      <div class="t6-btns">
+        <a href="#projects" class="t6-btn-main">VIEW PROJECTS</a>
+        <a href="#contact" class="t6-btn-ghost">CONTACT</a>
+      </div>
+    </div>
+
+    <div class="t6-hero-right">
+      <div class="t6-avatar-panel">
+        <img [src]="user?.profile?.imageUrl" alt="profile" class="t6-avatar-img" />
+        <div class="t6-avatar-info">
+          <div class="t6-avatar-name">{{ user?.profile?.name }}</div>
+          <div class="t6-avatar-role">// Backend Engineer</div>
+        </div>
+      </div>
+      <div class="t6-panel">
+        <div class="t6-panel-title">SYSTEM_STATUS</div>
+        <div class="t6-metric-row">
+          <span class="t6-metric-key">projects</span>
+          <span class="t6-metric-val">{{ (user?.projects?.length || 0).toString().padStart(2,'0') }}</span>
+        </div>
+        <div class="t6-metric-row">
+          <span class="t6-metric-key">skills</span>
+          <span class="t6-metric-val">{{ (user?.skills?.length || 0).toString().padStart(2,'0') }}</span>
+        </div>
+        <div class="t6-metric-row">
+          <span class="t6-metric-key">uptime</span>
+          <span class="t6-metric-val">99.9%</span>
+        </div>
+        <div class="t6-metric-row">
+          <span class="t6-metric-key">status</span>
+          <span class="t6-metric-val">AVAILABLE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t6-body">
+    <div class="t6-section" id="skills">
+      <div class="t6-section-header">
+        <div class="t6-section-icon">⚡</div>
+        <div class="t6-section-title">SKILL_MATRIX</div>
+      </div>
+      <div class="t6-skills">
+        <div class="t6-skill-row" *ngFor="let s of user?.skills; let i = index">
+          <span class="t6-skill-name">{{ s }}</span>
+          <div class="t6-skill-bar">
+            <div class="t6-skill-fill" [style.width]="(70 + (i * 8) % 28) + '%'"></div>
+          </div>
+          <span class="t6-skill-pct">{{ 70 + (i * 8) % 28 }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="t6-section" id="projects">
+      <div class="t6-section-header">
+        <div class="t6-section-icon">📁</div>
+        <div class="t6-section-title">DEPLOYMENTS</div>
+      </div>
+      <div class="t6-projects">
+        <div class="t6-project" *ngFor="let p of user?.projects; let i = index">
+          <div class="t6-project-header">
+            <span class="t6-project-name">{{ p.title }}</span>
+            <span class="t6-project-tag">{{ i === 0 ? 'PROD' : 'DEV' }}</span>
+          </div>
+          <div class="t6-project-desc">{{ p.description }}</div>
+          <a [href]="p.link" target="_blank" class="t6-project-link">→ VIEW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="t6-footer" id="contact">
+    <div class="t6-footer-label">CONNECT_PORTS</div>
+    <div class="t6-socials">
+      <a class="t6-social" *ngFor="let s of user?.socialLinks" [href]="s.link" target="_blank">
+        <span class="t6-social-dot"></span>{{ s.platform }}
+      </a>
+    </div>
+  </div>
+</div>

@@ -26,6 +26,9 @@ import { RevealDirective } from './components/directives/reveal.directive';
 import { PublicPortfolioComponent } from './components/pages/public-portfolio/public-portfolio.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { Template5Component } from './components/UI/template5/template5.component';
+import { Template6Component } from './components/UI/template6/template6.component';
+import { Template7Component } from './components/UI/template7/template7.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,10 @@ import { ToastrModule } from 'ngx-toastr';
     Template3Component,
     Template4Component,
     RevealDirective,
-    PublicPortfolioComponent
+    PublicPortfolioComponent,
+    Template5Component,
+    Template6Component,
+    Template7Component
   ],
   imports: [
     BrowserModule,
